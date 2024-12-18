@@ -70,6 +70,8 @@ plt.show()
 ### Feature Correlation Heatmap
 The heatmap uncovered relationships between numerical features.
 
+pip install seaborn
+import seaborn as sns
 sns.heatmap(data.corr(), annot=True, cmap='coolwarm')
 plt.title('Feature Correlations')
 plt.show()
