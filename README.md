@@ -1,5 +1,5 @@
 Predicting house prices using regression analysis
-## Overview
+### Overview
 This project aims to predict house prices using regression analysis, leveraging key features such as size, location, number of rooms, and additional engineered features. By exploring and modeling real-world data, this project showcases the application of core data science concepts, including data preprocessing, feature engineering, model training, and evaluation.
 
 We utilized Python and its robust ecosystem of libraries, such as pandas, scikit-learn, matplotlib, and seaborn, for analysis, visualization, and building predictive models.
@@ -18,7 +18,7 @@ The project emphasizes the following:
 
 ---
 
-## Group Members
+### Group Members
 - Sylvia
 - Mitchelle
 - Lavendar
@@ -39,11 +39,11 @@ Ensure the following are installed on your machine:
    git clone https://github.com/your-username/house-prices-regression.git
    cd house-prices-regression
 pip install -r requirements.txt
-# Checking for missing values
+### Checking for missing values
 missing_values = data.isnull().sum()
 print(missing_values)
 
-# Imputing missing values with mean
+### Imputing missing values with mean
 for feature in ['sqft', 'bedrooms', 'bathrooms']:
     data[feature].fillna(data[feature].mean(), inplace=True)
 
@@ -51,7 +51,7 @@ Removing Outliers
 
 To ensure the dataset’s quality, we addressed extreme outliers using interquartile range (IQR):
 
-# Removing outliers based on price
+### Removing outliers based on price
 Q1 = data['price'].quantile(0.25)
 Q3 = data['price'].quantile(0.75)
 IQR = Q3 - Q1
@@ -82,7 +82,7 @@ data['price_per_sqft'] = data['price'] / data['sqft']
 To identify the most relevant features, we performed correlation analysis and used Variance Inflation Factor (VIF) to eliminate multicollinearity:
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 
-# Calculating VIF for each feature
+### Calculating VIF for each feature
 X = data[['sqft', 'bedrooms', 'bathrooms', 'location_score']]
 vif_data = pd.DataFrame()
 vif_data['Feature'] = X.columns
@@ -98,18 +98,18 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-# Splitting data into train and test sets
+### Splitting data into train and test sets
 X = data[['sqft', 'bedrooms', 'bathrooms', 'price_per_sqft']]
 y = data['price']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Training the model
+### Training the model
 model = LinearRegression()
 model.fit(X_train, y_train)
 
 ### Model Evaluation
 
-# Predictions and metrics
+### Predictions and metrics
 y_pred = model.predict(X_test)
 
 print("Mean Absolute Error:", mean_absolute_error(y_test, y_pred))
