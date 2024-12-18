@@ -60,12 +60,13 @@ Key Visualizations
 ### House Price Distribution
 A histogram revealed the skewness in house prices, guiding our transformation strategy.
 
-plt.hist(data['price'], bins=50, color='blue', alpha=0.7)
-plt.title('House Price Distribution')
-plt.xlabel('Price')
-plt.ylabel('Frequency')
+### import matplotlib module
+from matplotlib import pyplot as plt
+plt.hist(data['price'], bins=50, color='blue', alpha=0.7) 
+plt.title('House Price Distribution') 
+plt.xlabel('Price') 
+plt.ylabel('Frequency') 
 plt.show()
-
 ### Feature Correlation Heatmap
 The heatmap uncovered relationships between numerical features.
 
